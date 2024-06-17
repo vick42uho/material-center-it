@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  nao_drawing_board_dev:
+    build:
+      context: .
+      target: development
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - "3001:3001"  # พอร์ตสำหรับการพัฒนา
+    command: yarn dev
+
+  nao_drawing_board_prod:
+    build:
+      context: .
+      target: production
+    ports:
+      - "81:81"  # พอร์ตสำหรับ production

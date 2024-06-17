@@ -1,0 +1,70 @@
+/* Import Sarabun font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+/* Apply Sarabun font to the entire container */
+.container {
+    font-family: 'Sarabun', sans-serif;
+}
+
+/* Apply Sarabun font to the card titles */
+.card-title {
+    font-family: 'Sarabun', sans-serif;
+    font-weight: 600;
+    font-size: 1.25rem; /* Adjust size as needed */
+}
+
+/* Apply Sarabun font to the card body text */
+.card-body {
+    font-family: 'Sarabun', sans-serif;
+    font-weight: 400;
+    font-size: 1rem; /* Adjust size as needed */
+}
+
+/* Specific styling for the typography used in the cards */
+.card-content .MuiTypography-root {
+    font-family: 'Sarabun', sans-serif;
+}
+
+/* Apply Sarabun font to buttons (IconButtons in this case) */
+.icon-button {
+    font-family: 'Sarabun', sans-serif;
+}
+
+/* Ensuring that the font is applied to all child elements as well */
+* {
+    font-family: 'Sarabun', sans-serif;
+}
+
+/* Additional styles to ensure everything looks good */
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.card {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    border-radius: 8px;
+}
+
+/* Custom tooltip styles if needed */
+.custom-tooltip .MuiTooltip-tooltip {
+    font-family: 'Sarabun', sans-serif;
+    font-size: 0.875rem; /* Adjust as needed */
+}
+
+/* Grid container spacing adjustments if needed */
+.grid-container {
+    display: grid;
+    gap: 16px; /* Adjust spacing as needed */
+}
