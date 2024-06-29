@@ -68,3 +68,24 @@ body {
     display: grid;
     gap: 16px; /* Adjust spacing as needed */
 }
+
+.exampleStyle {
+    display: inline-block;
+    border: 1px solid #ccc;
+    margin-bottom: 1em;
+    padding: 2em 1em 1em 1em;
+    width: 80%;
+    font-size: 1.5rem;
+}
+
+.codeDivStyle {
+    background-color: #eee;
+    margin-top: 2em;
+    padding: 1px 1em;
+    overflow: scroll;
+    font-size: 1rem;
+}
+
+.codeStyle {
+    text-align: left;
+}

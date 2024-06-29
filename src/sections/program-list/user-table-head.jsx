@@ -9,8 +9,6 @@ import TableSortLabel from '@mui/material/TableSortLabel';
 
 import { visuallyHidden } from './utils';
 
-// ----------------------------------------------------------------------
-
 export default function UserTableHead({
   order,
   orderBy,
@@ -20,7 +18,7 @@ export default function UserTableHead({
   onRequestSort,
   onSelectAllClick,
 }) {
-  const onSort = (property) => (event) => {
+  const createSortHandler = (property) => (event) => {
     onRequestSort(event, property);
   };
 
@@ -34,19 +32,21 @@ export default function UserTableHead({
             onChange={onSelectAllClick}
           />
         </TableCell>
-
         {headLabel.map((headCell) => (
           <TableCell
             key={headCell.id}
             align={headCell.align || 'left'}
             sortDirection={orderBy === headCell.id ? order : false}
-            sx={{ width: headCell.width, minWidth: headCell.minWidth }}
+            sx={{
+              width: headCell.width,
+              minWidth: headCell.minWidth,
+            }}
           >
             <TableSortLabel
               hideSortIcon
               active={orderBy === headCell.id}
               direction={orderBy === headCell.id ? order : 'asc'}
-              onClick={onSort(headCell.id)}
+              onClick={createSortHandler(headCell.id)}
             >
               {headCell.label}
               {orderBy === headCell.id ? (
@@ -66,7 +66,15 @@ UserTableHead.propTypes = {
   order: PropTypes.oneOf(['asc', 'desc']),
   orderBy: PropTypes.string,
   rowCount: PropTypes.number,
-  headLabel: PropTypes.array,
+  headLabel: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      align: PropTypes.string,
+      width: PropTypes.number,
+      minWidth: PropTypes.number,
+    })
+  ).isRequired, // ตรวจสอบให้แน่ใจว่า headLabel เป็น array ที่มีข้อมูลตาม propTypes นี้
   numSelected: PropTypes.number,
   onRequestSort: PropTypes.func,
   onSelectAllClick: PropTypes.func,

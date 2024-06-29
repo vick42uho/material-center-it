@@ -3,9 +3,11 @@ import { Outlet, Navigate, useRoutes } from 'react-router-dom';
 
 import DashboardLayout from 'src/layouts/dashboard';
 
-export const IndexPage = lazy(() => import('src/pages/it-request'));
+export const IndexPage = lazy(() => import('src/pages/program-view'));
 export const BlogPage = lazy(() => import('src/pages/blog'));
-export const UserPage = lazy(() => import('src/pages/user'));
+export const ProgramPageList = lazy(() => import('src/pages/program-list'));
+export const ProgramAddPage = lazy(() => import('src/pages/program-add'));
+export const ProgramUpdatePage = lazy(() => import('src/pages/program-update'));
 export const LoginPage = lazy(() => import('src/pages/login'));
 export const ProductsPage = lazy(() => import('src/pages/products'));
 export const Page404 = lazy(() => import('src/pages/page-not-found'));
@@ -24,7 +26,9 @@ export default function Router() {
       ),
       children: [
         { element: <IndexPage />, index: true },
-        { path: 'user', element: <UserPage /> },
+        { path: 'program', element: <ProgramPageList /> },
+        { path: 'program/add', element: <ProgramAddPage /> },
+        { path: 'program/update/:id_program', element: <ProgramUpdatePage /> },
         { path: 'products', element: <ProductsPage /> },
         { path: 'blog', element: <BlogPage /> },
       ],
