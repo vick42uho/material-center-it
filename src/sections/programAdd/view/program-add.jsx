@@ -56,7 +56,7 @@ export default function ProgramForm() {
         data.append('img_program', imgFiles[0].file);
       }
 
-      const response = await axios.post('http://18.143.102.26:9999/program/add', data, {
+      const response = await axios.post('http://18.143.102.26/program/add', data, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

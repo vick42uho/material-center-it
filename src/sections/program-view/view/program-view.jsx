@@ -24,7 +24,7 @@ export default function ProgramView() {
     useEffect(() => {
         const fetchPrograms = async () => {
             try {
-                const response = await fetch('http://18.143.102.26:9999/program');
+                const response = await fetch('http://18.143.102.26/program');
                 if (!response.ok) {
                     throw new Error('Failed to fetch programs');
                 }

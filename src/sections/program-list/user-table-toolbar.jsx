@@ -21,7 +21,7 @@ export default function UserTableToolbar({ selectedIds, filterName, onFilterName
 
     const queryParams = selectedIds.map(id => `program_ids=${id}`).join('&');
 
-    fetch(`http://18.143.102.26:9999/program/delete/?${queryParams}`, {
+    fetch(`http://18.143.102.26/program/delete/?${queryParams}`, {
       method: 'DELETE',
     })
       .then(response => {
