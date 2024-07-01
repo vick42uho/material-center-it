@@ -1,22 +1,28 @@
 version: '3.8'
-services:
-  nao_drawing_board_dev:
-    build:
-      context: .
-      target: development
-    volumes:
-      - .:/usr/src/app
-      - /usr/src/app/node_modules
-    ports:
-      - "3001:3001" # พอร์ตสำหรับการพัฒนา
-    command: yarn dev
 
-  nao_drawing_board_prod:
+services:
+  dev:
+    image: node:18-alpine
+    working_dir: /app
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - "3000:3000" # Port for Vite dev server
+    command: yarn dev
+    environment:
+      - NODE_ENV=development
+    networks:
+      - mynetwork
+
+  web:
     build:
       context: .
-      target: production
+      dockerfile: Dockerfile
     ports:
-      - "81:81" # พอร์ตสำหรับ production
+      - "8080:80" # Use port 8080 to avoid conflict with port 80
+    environment:
+      - NODE_ENV=production
     networks:
       - mynetwork
 
