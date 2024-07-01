@@ -33,9 +33,9 @@ export default defineConfig({
     },
     host: true, // needed for the Docker Container port mapping to work
     strictPort: true, // not necessary
-    port: 3002, // you can replace this port with any port
+    port: 3001, // you can replace this port with any port
   },
   preview: {
-    port: 3002,
+    port: 3001,
   },
 });

@@ -17,3 +17,10 @@ services:
       target: production
     ports:
       - "81:81"  # พอร์ตสำหรับ production
+    networks:
+      - mynetwork
+
+
+networks:
+  mynetwork:
+    driver: bridge
