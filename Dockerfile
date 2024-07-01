@@ -1,32 +1,30 @@
-# Stage 1: Build the React application with Vite
-FROM node:18-alpine AS build
+# Stage 1: Build the React app with Vite
+FROM node:18 AS builder
 
 # Set working directory
 WORKDIR /app
 
-# Copy package.json and yarn.lock to the container
-COPY package.json yarn.lock ./
-
 # Install dependencies
+COPY package.json package-lock.json ./
 RUN yarn install
 
-# Copy the rest of the application to the container
+# Copy the source code
 COPY . .
 
 # Build the application
-RUN yarn build
+RUN yarn run build
 
-# Stage 2: Serve the built application using nginx
+# Stage 2: Serve the app using a lightweight server
 FROM nginx:stable-alpine
 
-# Copy the built files from the build stage to nginx web root
-COPY --from=build /app/dist /usr/share/nginx/html
+# Copy the build output to Nginx's default HTML folder
+COPY --from=builder /app/dist /usr/share/nginx/html
 
-# Copy the nginx configuration file to the appropriate directory
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Copy custom Nginx configuration if needed
+# COPY nginx.conf /etc/nginx/nginx.conf
 
 # Expose port 80
 EXPOSE 80
 
-# Start nginx
+# Start Nginx server
 CMD ["nginx", "-g", "daemon off;"]

@@ -53,7 +53,7 @@ export default function UserTableRow({
       return;
     }
 
-    fetch(`http://3.1.6.34/program/delete/?program_ids=${id_program}`, {
+    fetch(`http://54.179.56.107:9999/program/delete/?program_ids=${id_program}`, {
       method: 'DELETE',
     })
       .then(response => {
