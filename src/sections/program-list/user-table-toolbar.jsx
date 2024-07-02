@@ -21,11 +21,7 @@ export default function UserTableToolbar({ selectedIds, filterName, onFilterName
 
     const queryParams = selectedIds.map(id => `program_ids=${id}`).join('&');
 
-<<<<<<< HEAD
     fetch(`${import.meta.env.VITE_API_URL}/program/delete/?${queryParams}`, {
-=======
-    fetch(`http://54.179.56.107:9999/program/delete/?${queryParams}`, {
->>>>>>> 58492271a2637d306fd95d4987551d8109335b0f
       method: 'DELETE',
     })
       .then(response => {

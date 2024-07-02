@@ -53,11 +53,8 @@ export default function UserTableRow({
       return;
     }
 
-<<<<<<< HEAD
+
     fetch(`${import.meta.env.VITE_API_URL}/program/delete/?program_ids=${id_program}`, {
-=======
-    fetch(`http://54.179.56.107:9999/program/delete/?program_ids=${id_program}`, {
->>>>>>> 58492271a2637d306fd95d4987551d8109335b0f
       method: 'DELETE',
     })
       .then(response => {

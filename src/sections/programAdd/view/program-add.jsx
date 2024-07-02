@@ -56,11 +56,8 @@ export default function ProgramForm() {
         data.append('img_program', imgFiles[0].file);
       }
 
-<<<<<<< HEAD
+      // Make the POST request
       const response = await axios.post(`${import.meta.env.VITE_API_URL}/program/add`, data, {
-=======
-      const response = await axios.post('http://54.179.56.107:9999/program/add', data, {
->>>>>>> 58492271a2637d306fd95d4987551d8109335b0f
         headers: {
           'Content-Type': 'multipart/form-data',
         },
