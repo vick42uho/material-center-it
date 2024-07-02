@@ -41,7 +41,7 @@ export default function ProgramPageList() {
   const fetchPrograms = async () => {
     setLoading(true);
     try {
-      const response = await axios.get('http://13.250.35.85:9999/program');
+      const response = await axios.get('http://54.179.56.107:9999/program');
       setPrograms(response.data);
     } catch (fetchError) {
       setError(fetchError.message);
