@@ -46,7 +46,7 @@ export default function ProgramUpdatePage() {
   const fetchProgram = async () => {
     setFetching(true); // Start loading
     try {
-      const response = await axios.get(`http://54.179.56.107:9999/program/${id_program}`);
+      const response = await axios.get(`http://13.250.35.85:9999/program/${id_program}`);
 
       // Set form data
       setFormData({
@@ -101,7 +101,7 @@ export default function ProgramUpdatePage() {
       }
 
       const response = await axios.put(
-        `http://54.179.56.107:9999/program/update/${id_program}`,
+        `http://13.250.35.85:9999/program/update/${id_program}`,
         data,
         {
           headers: {
