@@ -41,8 +41,12 @@ export default function ProgramPageList() {
   const fetchPrograms = async () => {
     setLoading(true);
     try {
+<<<<<<< HEAD
       const response = await axios.get(`${import.meta.env.VITE_API_URL}/program`);
       // const response = await axios.get('process.env.API_URL/program');
+=======
+      const response = await axios.get('http://54.179.56.107:9999/program');
+>>>>>>> 58492271a2637d306fd95d4987551d8109335b0f
       setPrograms(response.data);
     } catch (fetchError) {
       setError(fetchError.message);

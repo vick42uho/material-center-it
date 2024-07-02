@@ -46,7 +46,11 @@ export default function ProgramUpdatePage() {
   const fetchProgram = async () => {
     setFetching(true); // Start loading
     try {
+<<<<<<< HEAD
       const response = await axios.get(`${import.meta.env.VITE_API_URL}/program/${id_program}`);
+=======
+      const response = await axios.get(`http://54.179.56.107:9999/program/${id_program}`);
+>>>>>>> 58492271a2637d306fd95d4987551d8109335b0f
 
       // Set form data
       setFormData({
@@ -101,7 +105,11 @@ export default function ProgramUpdatePage() {
       }
 
       const response = await axios.put(
+<<<<<<< HEAD
         `${import.meta.env.VITE_API_URL}/program/update/${id_program}`,
+=======
+        `http://54.179.56.107:9999/program/update/${id_program}`,
+>>>>>>> 58492271a2637d306fd95d4987551d8109335b0f
         data,
         {
           headers: {
