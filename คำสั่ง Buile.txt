@@ -1,0 +1,16 @@
+ขั้นตอนในการ Build และ Run Docker Container
+สร้าง Docker Image:
+
+เปิด terminal ในโฟลเดอร์ที่มีไฟล์ Dockerfile และ nginx.conf แล้วรันคำสั่ง:
+
+bash
+คัดลอกโค้ด
+docker build -t my-vite-react-app .
+คำสั่งนี้จะสร้าง Docker image ชื่อ my-vite-react-app.
+
+รัน Docker Container:
+
+bash
+คัดลอกโค้ด
+docker run -p 3001:80 my-vite-react-app
+คำสั่งนี้จะรัน container จาก image ที่สร้างขึ้น และทำการ map พอร์ต 80 ของ container ไปยังพอร์ต 3001 ของเครื่อง host.

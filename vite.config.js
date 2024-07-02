@@ -27,15 +27,24 @@ export default defineConfig({
     ],
   },
   
+  // server: {
+  //   watch: {
+  //     usePolling: true,
+  //   },
+  //   host: true, // needed for the Docker Container port mapping to work
+  //   strictPort: true, // not necessary
+  //   port: 3001, // you can replace this port with any port
+  // },
+  // preview: {
+  //   port: 3001,
+  // },
   server: {
-    watch: {
-      usePolling: true,
+    proxy: {
+      '/program': {
+        target: 'http://54.179.56.107:9999',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/program/, '/program'),
+      },
     },
-    host: true, // needed for the Docker Container port mapping to work
-    strictPort: true, // not necessary
-    port: 3001, // you can replace this port with any port
-  },
-  preview: {
-    port: 3001,
   },
 });
