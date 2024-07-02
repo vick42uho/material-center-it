@@ -53,7 +53,7 @@ export default function UserTableRow({
       return;
     }
 
-    fetch(`http://3.1.6.34/program/delete/?program_ids=${id_program}`, {
+    fetch(`${import.meta.env.VITE_API_URL}/program/delete/?program_ids=${id_program}`, {
       method: 'DELETE',
     })
       .then(response => {

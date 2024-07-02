@@ -24,7 +24,7 @@ export default function ProgramView() {
     useEffect(() => {
         const fetchPrograms = async () => {
             try {
-                const response = await fetch('http://3.1.6.34/program');
+                const response = await fetch(`${import.meta.env.VITE_API_URL}/program`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch programs');
                 }
