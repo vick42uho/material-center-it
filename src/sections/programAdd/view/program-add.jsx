@@ -57,7 +57,7 @@ export default function ProgramForm() {
       }
 
       // Make the POST request
-      const response = await axios.post(`${import.meta.env.VITE_API_URL}/program/add`, data, {
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/program/`, data, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -220,11 +220,11 @@ export default function ProgramForm() {
           <Grid item xs={12} md={6}>
             {/* Right Section - File Uploads */}
             <Box sx={{ mb: 2 }}>
-              <Typography variant="subtitle1" sx={{ mb: 1 }}>อัพโหลดคู่มือโปรแกรม (Word, Excel, PDF)</Typography>
+              <Typography variant="subtitle1" sx={{ mb: 1 }}>อัพโหลดคู่มือโปรแกรม (PDF)</Typography>
               <Dropzone
                 onChange={updateManualFiles}
                 value={manualFiles}
-                accept=".xlsx, .xls, .pdf"
+                accept=".pdf"
                 style={{ border: '1px dashed #222422', padding: '20px', borderRadius: '8px' }}
               >
                 {manualFiles.map((file) => (

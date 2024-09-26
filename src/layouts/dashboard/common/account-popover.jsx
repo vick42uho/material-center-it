@@ -1,17 +1,17 @@
 // import { useState } from 'react';
 
 // import Box from '@mui/material/Box';
-import Avatar from '@mui/material/Avatar';
+// import Avatar from '@mui/material/Avatar';
 // import Divider from '@mui/material/Divider';
 // import MenuItem from '@mui/material/MenuItem';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 // import Popover from '@mui/material/Popover';
-import { alpha } from '@mui/material/styles';
+// import { alpha } from '@mui/material/styles';
 // import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
+// import IconButton from '@mui/material/IconButton';
 
-import { account } from 'src/_mock/account';
+// import { account } from 'src/_mock/account';
 
 // ----------------------------------------------------------------------
 
@@ -115,9 +115,9 @@ export default function AccountPopover() {
       </Popover> */}
 
 
-      <IconButton
+      {/* <IconButton
         component={Link}
-        to="/program"
+        to=""
         sx={{
           width: 40,
           height: 40,
@@ -139,7 +139,7 @@ export default function AccountPopover() {
         >
           {account.displayName.charAt(0).toUpperCase()}
         </Avatar>
-      </IconButton>
+      </IconButton> */}
     </>
   );
 }

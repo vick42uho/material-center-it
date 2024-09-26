@@ -14,14 +14,14 @@ export default function UserTableToolbar({ selectedIds, filterName, onFilterName
     if (!window.confirm('Are you sure you want to delete the selected programs?')) {
       return;
     }
-
+  
     if (selectedIds.length === 0) {
       return;
     }
-
-    const queryParams = selectedIds.map(id => `program_ids=${id}`).join('&');
-
-    fetch(`${import.meta.env.VITE_API_URL}/program/delete/?${queryParams}`, {
+  
+    const queryParams = selectedIds.join(',');
+  
+    fetch(`${import.meta.env.VITE_API_URL}/program/delete/${queryParams}`, {
       method: 'DELETE',
     })
       .then(response => {
@@ -39,6 +39,7 @@ export default function UserTableToolbar({ selectedIds, filterName, onFilterName
         console.error('Error deleting programs:', error);
       });
   };
+  
 
   return (
     <Toolbar

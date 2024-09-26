@@ -36,6 +36,9 @@ export default function UserTableRow({
   handleClick,
   onDeleteSuccess,
 }) {
+  // console.log(`Row ${id_program} selected:`, selected);
+  const programId = Number(id_program);
+  
   const [menuOpen, setMenuOpen] = useState(null);
 
   const handleOpenMenu = (event) => {
@@ -54,7 +57,7 @@ export default function UserTableRow({
     }
 
 
-    fetch(`${import.meta.env.VITE_API_URL}/program/delete/?program_ids=${id_program}`, {
+    fetch(`${import.meta.env.VITE_API_URL}/program/delete/${programId}`, {
       method: 'DELETE',
     })
       .then(response => {
@@ -79,7 +82,13 @@ export default function UserTableRow({
     <>
       <TableRow hover role="checkbox" tabIndex={-1} selected={selected}>
         <TableCell padding="checkbox">
-          <Checkbox disableRipple checked={selected} onChange={handleClick} />
+          {/* <Checkbox disableRipple checked={selected} onChange={handleClick} /> */}
+          <Checkbox 
+  disableRipple 
+  checked={selected} 
+  onChange={(event) => handleClick(event, id_program)}
+  inputProps={{ 'aria-labelledby': `checkbox-${id_program}` }}
+/>
         </TableCell>
         <TableCell component="th" scope="row" padding="none">
           <Stack direction="row" alignItems="center" spacing={2}>
@@ -129,14 +138,14 @@ export default function UserTableRow({
         transformOrigin={{ vertical: 'top', horizontal: 'right' }}
         PaperProps={{ sx: { width: 140 } }}
       >
-        <Link to={`/program/update/${id_program}`} style={{ textDecoration: 'none' }}>
+        <Link to={`/program/update/${programId}`} style={{ textDecoration: 'none' }}>
         <MenuItem 
         sx={{ color: 'primary.main' }}>
         <Iconify icon="eva:edit-fill" sx={{ mr: 2 }} />
           Edit
         </MenuItem>
         </Link>
-        <MenuItem onClick={() => handleDelete(id_program)} sx={{ color: 'error.main' }}>
+        <MenuItem onClick={() => handleDelete(programId)} sx={{ color: 'error.main' }}>
           <Iconify icon="eva:trash-2-outline" sx={{ mr: 2 }} />
           Delete
         </MenuItem>

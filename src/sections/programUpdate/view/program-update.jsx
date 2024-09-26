@@ -279,11 +279,11 @@ export default function ProgramUpdatePage() {
 
           <Grid item xs={12} md={6}>
             <Box sx={{ mb: 2 }}>
-              <Typography variant="subtitle1" sx={{ mb: 1 }}>อัพโหลดคู่มือโปรแกรม (Excel, PDF)</Typography>
+              <Typography variant="subtitle1" sx={{ mb: 1 }}>อัพโหลดคู่มือโปรแกรม (PDF)</Typography>
               <Dropzone
                 onChange={updateManualFiles}
                 value={manualFiles}
-                accept=".xlsx, .xls, .pdf"
+                accept=".pdf"
                 style={{ border: '1px dashed #222422', padding: '20px', borderRadius: '8px' }}
               >
                 {manualFiles.map((file) => (

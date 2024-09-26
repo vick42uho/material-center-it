@@ -62,32 +62,63 @@ export default function ProgramPageList() {
     }
   };
 
+  // const handleSelectAllClick = (event) => {
+  //   if (event.target.checked) {
+  //     const newSelecteds = programs.map((n) => n.id_program);
+  //     setSelected(newSelecteds);
+  //   } else {
+  //     setSelected([]);
+  //   }
+  // };
+
+  // const handleClick = (event, id_program) => {
+  //   const selectedIndex = selected.indexOf(id_program);
+  //   let newSelected = [];
+  //   if (selectedIndex === -1) {
+  //     newSelected = [...selected, id_program];
+  //   } else if (selectedIndex === 0) {
+  //     newSelected = selected.slice(1);
+  //   } else if (selectedIndex === selected.length - 1) {
+  //     newSelected = selected.slice(0, -1);
+  //   } else if (selectedIndex > 0) {
+  //     newSelected = [
+  //       ...selected.slice(0, selectedIndex),
+  //       ...selected.slice(selectedIndex + 1),
+  //     ];
+  //   }
+  //   setSelected(newSelected);
+  // };
+
   const handleSelectAllClick = (event) => {
     if (event.target.checked) {
-      const newSelecteds = programs.map((n) => n.id_program);
+      const newSelecteds = programs.map((n) => Number(n.id_program));
       setSelected(newSelecteds);
     } else {
       setSelected([]);
     }
   };
-
+  
   const handleClick = (event, id_program) => {
-    const selectedIndex = selected.indexOf(id_program);
+    const selectedIndex = selected.indexOf(Number(id_program));
     let newSelected = [];
+  
     if (selectedIndex === -1) {
-      newSelected = [...selected, id_program];
+      newSelected = newSelected.concat(selected, Number(id_program));
     } else if (selectedIndex === 0) {
-      newSelected = selected.slice(1);
+      newSelected = newSelected.concat(selected.slice(1));
     } else if (selectedIndex === selected.length - 1) {
-      newSelected = selected.slice(0, -1);
+      newSelected = newSelected.concat(selected.slice(0, -1));
     } else if (selectedIndex > 0) {
-      newSelected = [
-        ...selected.slice(0, selectedIndex),
-        ...selected.slice(selectedIndex + 1),
-      ];
+      newSelected = newSelected.concat(
+        selected.slice(0, selectedIndex),
+        selected.slice(selectedIndex + 1),
+      );
     }
+  
     setSelected(newSelected);
+    console.log('New selected:', newSelected);
   };
+
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -133,7 +164,7 @@ export default function ProgramPageList() {
 
       <Card>
         <UserTableToolbar
-          selectedIds={selected}
+          selectedIds={selected.map(Number)}  // แปลงเป็น numbers
           filterName={filterName}
           onFilterName={handleFilterByName}
           onDeleteSuccess={handleDeleteSuccess}
@@ -176,7 +207,7 @@ export default function ProgramPageList() {
                         details={row.details_program.slice(0, 30)}
                         imgUrl={row.img_program}
                         nameDev={row.name_dev}
-                        selected={selected.indexOf(row.id_program) !== -1}
+                        selected={selected.indexOf(Number(row.id_program)) !== -1}
                         handleClick={(event) => handleClick(event, row.id_program)}
                         onDeleteSuccess={handleDeleteSuccess} // ส่งฟังก์ชันไปยัง UserTableRow
                       />
